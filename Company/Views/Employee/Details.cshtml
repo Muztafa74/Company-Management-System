@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Employee Details</h1>
+<div class="card text-center">
+    <div class="card-header">
+        Employee Details
+    </div>
+    <div class="card-body">
+        <h5 class="card-title"> @Model.Name</h5>
+        <p class="card-text">
+            <strong>Age:</strong> @Model.Age<br>
+            <strong>Address:</strong> @Model.Address<br>
+            <strong>Salary:</strong> @Model.Salary<br>
+            <strong>Email:</strong> @Model.Email<br>
+            <strong>Office:</strong> @(Model.Office_id == 1 ? "ITI" : Model.Office_id == 2 ? "INSTANT" : Model.Office_id == 3 ? "NTI" : Model.Office_id == 4 ? "ODC" : "Not Found")
+        </p>
+        <a href="/Employee/index" class="btn btn-primary">Back To List</a>
+    </div>
+    <div class="card-footer text-body-secondary">
+       
+    </div>
+</div>

@@ -1,0 +1,44 @@
+﻿@model Employee﻿
+@{
+    ViewData["Title"] = "AddForm";
+}
+
+<h1>Add New Employee</h1>
+
+<form action="/Employee/AddToDB" method="post">
+    <label for="Name" class="form-label">Name</label>
+    <input type="text" id="Name" name="Name" class="form-control" />
+    <br />
+
+    <label for="Age" class="form-label">Age</label>
+    <input type="number" id="Age" name="Age" class="form-control" />
+    <br />
+
+    <label for="Address" class="form-label">Address</label>
+    <input type="text" id="Address" name="Address" class="form-control" />
+    <br />
+
+    <label for="Email" class="form-label">Email</label>
+    <input type="text" id="Email" name="Email" class="form-control" />
+    <br />
+
+    <label for="Salary" class="form-label">Salary</label>
+    <input type="number" id="Salary" name="Salary" class="form-control" />
+    <br />
+
+    <label for="Password" class="form-label">Password</label>
+    <input type="text" id="Password" name="Password" class="form-control" />
+    <br />
+
+    <label for="Office" class="form-label">Office</label>
+    <select name="Office_id" id="office" class="form-select">
+        @foreach (Office off in ViewBag.Off)
+        {
+            <option value="@off.Id">@off.Name</option>
+        }
+    </select>
+    <br />
+
+    <input type="submit" value="Add" class="btn btn-primary" />
+    <br />
+</form>

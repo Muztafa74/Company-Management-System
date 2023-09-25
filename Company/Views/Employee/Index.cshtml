@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    int index = 1;
+}
+
+<h1>Employee Data</h1>
+<hr />
+
+<a href="/Employee/AddForm">
+    <button type="button" class="btn btn-outline-primary">Add New Employee</button>
+</a>
+<hr />
+
+<table class ="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Address</th>
+            <th scope="col">Controls</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Employee emp in Model)
+        {
+            <tr>
+                <th scope="row">@(index++)</th>
+                <td>@emp.Name</td>
+                <td>@emp.Age</td>
+                <td>@emp.Address</td>
+                <td class="d-flex justify-content-between align-items-center">
+                    <a href="/Employee/Details/@emp.Id" class="mx-1"><i class="fa-solid fa-circle-info"></i></a>
+                    <a href="/Employee/Edit/@emp.Id" class="mx-1"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a href="/Employee/Delete/@emp.Id" class="mx-1"><i class="fa-solid fa-delete-left"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
