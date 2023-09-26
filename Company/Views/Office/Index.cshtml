@@ -1,0 +1,41 @@
+﻿@model List<Office>
+@{
+    ViewData["Title"] = "Index";
+    int index = 1;
+}
+
+
+
+<h1>Office Data</h1>
+<hr />
+
+<a href="/office/Add">
+    <button type="button" class="btn btn-outline-primary">Add New Office</button>
+</a>
+<hr />
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Location</th>
+            <th scope="col">Controls</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Office off in Model)
+        {
+            <tr>
+                <th scope="row">@(index++)</th>
+                <td>@off.Name</td>
+                <td>@off.Location</td>
+                <td class="d-flex justify-content-between align-items-center">
+                    <a href="/Office/Details/@off.Id" class="mx-1"><i class="fa-solid fa-circle-info"></i></a>
+                    <a href="/Office/Edit/@off.Id" class="mx-1"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a href="/Office/Delete/@off.Id" class="mx-1"><i class="fa-solid fa-delete-left"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

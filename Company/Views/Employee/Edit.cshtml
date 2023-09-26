@@ -3,51 +3,63 @@
     ViewData["Title"] = "Edit";
 }
 
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center">Edit Employee</h1>
+            <form action="/Employee/EditToDB" method="post">
+                <input value="@Model.Id" name="Id" type="hidden" />
+                <div class="mb-3">
+                    <label for="Name" class="form-label">Name</label>
+                    <input type="text" id="Name" name="Name" class="form-control" value="@Model.Name" />
+                </div>
 
+                <div class="mb-3">
+                    <label for="Age" class="form-label">Age</label>
+                    <input type="number" id="Age" name="Age" class="form-control" value="@Model.Age" />
+                </div>
 
-<h1>Edit Employee</h1>
-<form action="/Employee/EditToDB" method="post">
-    <input value="@Model.Id" name="Id" type="hidden" />
-    <label for="Name" class="form-label">Name</label>
-    <input type="text" id="Name" name="Name" class="form-control" value="@Model.Name" />
-    <br />
+                <div class="mb-3">
+                    <label for="Address" class="form-label">Address</label>
+                    <input type="text" id="Address" name="Address" class="form-control" value="@Model.Address" />
+                </div>
 
-    <label for="Age" class="form-label">Age</label>
-    <input type="number" id="Age" name="Age" class="form-control" value="@Model.Age" />
-    <br />
+                <div class="mb-3">
+                    <label for="Email" class="form-label">Email</label>
+                    <input type="text" id="Email" name="Email" class="form-control" value="@Model.Email" />
+                </div>
 
-    <label for="Address" class="form-label">Address</label>
-    <input type="text" id="Address" name="Address" class="form-control" value="@Model.Address" />
-    <br />
+                <div class="mb-3">
+                    <label for="Salary" class="form-label">Salary</label>
+                    <input type="number" id="Salary" name="Salary" class="form-control" value="@Model.Salary" />
+                </div>
 
-    <label for="Email" class="form-label">Email</label>
-    <input type="text" id="Email" name="Email" class="form-control" value="@Model.Email" />
-    <br />
+                <div class="mb-3">
+                    <label for="Password" class="form-label">Password</label>
+                    <input type="text" id="Password" name="Password" class="form-control" value="@Model.Password" />
+                </div>
 
-    <label for="Salary" class="form-label">Salary</label>
-    <input type="number" id="Salary" name="Salary" class="form-control" value="@Model.Salary" />
-    <br />
+                <div class="mb-3">
+                    <label for="Office" class="form-label">Office</label>
+                    <select name="Office_id" id="office" class="form-select">
+                        @foreach (Office off in ViewBag.Off)
+                        {
+                            @if (off.Id == Model.Office_id)
+                            {
+                                <option value="@off.Id" selected>@off.Name</option>
+                            }
+                            else
+                            {
+                                <option value="@off.Id">@off.Name</option>
+                            }
+                        }
+                    </select>
+                </div>
 
-    <label for="Password" class="form-label">Password</label>
-    <input type="text" id="Password" name="Password" class="form-control" value="@Model.Password" />
-    <br />
-
-    <label for="Office" class="form-label">Office</label>
-    <select name="Office_id" id="office" class="form-select">
-        @foreach (Office off in ViewBag.Off)
-        {
-            @if (off.Id == Model.Office_id)
-            {
-                <option value="@off.Id" selected>@off.Name</option>
-            }
-            else
-            {
-                <option value="@off.Id">@off.Name</option>
-            }
-        }
-    </select>
-    <br />
-
-    <input type="submit" value="Edit" class="btn btn-primary" />
-    <br />
-</form>
+                <div class="mb-3 text-center">
+                    <input type="submit" value="Edit" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

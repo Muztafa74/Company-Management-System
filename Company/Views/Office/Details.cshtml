@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1 class="display-4">Office Data</h1>
+        </div>
+    </div>
+    <!-- Your employee data content can go here -->
+</div>
+<div class="card text-center">
+    <div class="card-header">
+       Office Details
+    </div>
+    <div class="card-body">
+        <h5 class="card-title"> @Model.Name</h5>
+        <p class="card-text">
+            <strong>Location:</strong> @Model.Location<br>
+            
+        <a href="/Office/Index" class="btn btn-primary">Back To List</a>
+    </div>
+    <div class="card-footer text-body-secondary">
+    </div>
+</div>
