@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewData["Title"] = "SetViewBag";
+}
+
+<h1>SetViewBag</h1>
+
+<h3>View Bag</h3>
+
+<p>Name: @ViewBag.Name</p>
+<p>Age: @ViewBag.Age</p>
+
+<p>Next Year Age: @(++ViewBag.Age)</p>
+
+
+
+
+<h3>View Bag From View Data</h3>
+<p>Test Data: @ViewBag.testData</p>
+
+<h3>View Data From View Bag</h3>
+<p>Test Bag: @ViewData["testBag"]</p>

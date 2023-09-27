@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "SetViewData";
+}
+
+<h1>SetViewData</h1>
+
+<h3>View Data</h3>
+
+<p>Name: @ViewData["name"] </p>
+<p>Name: @ViewData["age"]  </p>
+
+@{
+    int age = Convert.ToInt32(ViewData["age"]);
+}
+<p>Next Year age : @(++age)</p>

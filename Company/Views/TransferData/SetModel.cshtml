@@ -1,0 +1,15 @@
+﻿@Model Employee
+@{
+    ViewData["Title"] = "SetModel";
+}
+
+
+
+<h1>Set Model</h1>
+
+
+<p>Name: @Model.Name</p>
+<p>Age: @Model.Age</p>
+
+<p>Next Year Age: @(++Model.Age)</p>
+

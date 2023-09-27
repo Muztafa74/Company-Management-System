@@ -1,4 +1,4 @@
-﻿
+﻿@model Employee
 @{
     ViewData["Title"] = "Details";
 }
@@ -22,7 +22,11 @@
             <strong>Address:</strong> @Model.Address<br>
             <strong>Salary:</strong> @Model.Salary<br>
             <strong>Email:</strong> @Model.Email<br>
-            <strong>Office:</strong> @(Model.Office_id == 1 ? "ITI" : Model.Office_id == 2 ? "INSTANT" : Model.Office_id == 3 ? "NTI" : Model.Office_id == 4 ? "ODC" : "Not Found")
+          
+            @if (Model.Office_id > 0)
+            {
+                <strong>Office:</strong>  @Model.office.Name<br>
+            }
         </p>
         <a href="/Employee/index" class="btn btn-primary">Back To List</a>
     </div>

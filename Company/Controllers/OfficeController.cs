@@ -26,13 +26,17 @@ namespace Company.Controllers
             }
             return View(office);
         }
+
+
+        [HttpGet]
         public IActionResult Add()
         {
-            List<Office> offices = context.Offices.ToList();
-            ViewBag.Off = offices;
+            List<Employee> employees = context.Employees.ToList();
+            ViewBag.Off = employees;
             return View();
         }
 
+        [HttpPost]
         public IActionResult AddToDB(Office office)
         {
             context.Offices.Add(office);
@@ -41,6 +45,7 @@ namespace Company.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
         public IActionResult Edit(int id)
         {
             Office office = context.Offices.SingleOrDefault(e => e.Id == id);
@@ -48,6 +53,7 @@ namespace Company.Controllers
             return View(office);
         }
 
+        [HttpPost]
         public IActionResult EditToDB(Office office)
         {
 

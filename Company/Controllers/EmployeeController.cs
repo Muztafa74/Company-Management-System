@@ -1,5 +1,6 @@
 ﻿using Company.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Company.Controllers
 {
@@ -18,13 +19,15 @@ namespace Company.Controllers
         }
         public IActionResult Details(int id)
         {
-            Employee employee = context.Employees.Where(s => s.Id == id).SingleOrDefault();
+            Employee employee = context.Employees.Include(i => i.office).SingleOrDefault(i => i.Id == id);
             if (employee == null)
             {
                 return Content("Not Found");
             }
             return View(employee);
         }
+
+        [HttpGet]
         public IActionResult AddForm()
         {
             List<Office> offices = context.Offices.ToList();
@@ -32,6 +35,7 @@ namespace Company.Controllers
             return View();
         }
 
+        [HttpPost]
         public IActionResult AddToDB(Employee employee)
         {
             context.Employees.Add(employee);
@@ -40,13 +44,15 @@ namespace Company.Controllers
             return RedirectToAction("Index");
         }
 
+
+        [HttpGet]
         public IActionResult Edit(int id)
         {
             Employee employee = context.Employees.SingleOrDefault(e => e.Id == id);
             ViewBag.Off = context.Offices.ToList();
             return View(employee);  
         }
-
+        [HttpPost]
         public IActionResult EditToDB(Employee employee)
         {
 

@@ -1,0 +1,10 @@
+﻿
+@{
+}
+<h1>Transfer Data</h1>
+
+<p>We are making an example to transfer data from controller to view</p>
+<a asp-controller="TransferData" asp-action="SetViewData" asp-route-name ="Mustafa" asp-route-age ="19" class="btn btn-primary" >Using view data</a>
+<a asp-controller="TransferData" asp-action="SetViewBag" asp-route-name="Mohamed" asp-route-age="20" class="btn btn-primary">Using view Bag</a>
+<a asp-controller="TransferData" asp-action="SetModel" asp-route-name="SaSa" asp-route-age="19" class="btn btn-primary">Using Model</a>
+<a asp-controller="TransferData" asp-action="SetViewModel" asp-route-name="SaSa" asp-route-age="19" class="btn btn-primary">Using View Model</a>
