@@ -42,7 +42,7 @@ namespace Company.Controllers
             context.Offices.Add(office);
             context.SaveChanges();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Login", "Account");
         }
 
         [HttpGet]

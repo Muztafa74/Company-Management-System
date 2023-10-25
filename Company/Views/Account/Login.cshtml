@@ -1,0 +1,43 @@
+﻿@model LoginVM
+@{
+    ViewData["Title"] = "Login";
+}
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <form m asp-controller="Account" asp-action="Login" method="post">
+
+    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+                <div class="form-check text-start my-3">
+                    <input class="form-check-input" type="checkbox" asp-for="IsAnEmployee">
+                    <label class="form-check-label" asp-for="IsAnEmployee">
+                        Login As Employee
+                    </label>
+                </div>
+    <div class="form-floating">
+        <input type="email" class="form-control" asp-for="Email" placeholder="name@example.com">
+        <label asp-for="Email" class="form-label">Email address</label>
+    </div>
+    <br>
+    <div class="form-floating">
+        <input type="password" class="form-control" asp-for="Password" placeholder="Password">
+        <label asp-for="Password" class="form-label">Password</label>
+    </div>
+
+    <div class="form-check text-start my-3">
+        <input class="form-check-input" type="checkbox" asp-for="RemeberMe">
+        <label class="form-check-label" asp-for="RemeberMe">
+                        Remember me IsAnEmployee
+        </label>
+    </div>
+    <button class="btn btn-primary w-100 py-7" type="submit">Sign in</button>
+
+</form>
+
+        </div>
+             </div>
+</div>

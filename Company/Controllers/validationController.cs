@@ -40,7 +40,7 @@ namespace Company.Controllers
                 };
                 context.Employees.Add(newEmployee);
                 context.SaveChanges();
-                return RedirectToAction("Index", "Employee");
+                return RedirectToAction("Login", "Account");
 
             }
             employee.Offices = new SelectList(context.Offices, "Id" , "Name");
